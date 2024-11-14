@@ -31,7 +31,7 @@ public class AplikasiPerhitunganDiskon extends javax.swing.JFrame {
         hitungButton = new javax.swing.JButton();
         diskonComboBox = new javax.swing.JComboBox<>();
         hargaTextField = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        diskonLabel = new javax.swing.JLabel();
         hargaLabel = new javax.swing.JLabel();
         totalTextField = new javax.swing.JTextField();
         totalLabel = new javax.swing.JLabel();
@@ -41,54 +41,78 @@ public class AplikasiPerhitunganDiskon extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Aplikasi Penghitung Diskon", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         resetButton.setText("Reset");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 29;
+        gridBagConstraints.insets = new java.awt.Insets(0, 20, 6, 10);
         jPanel1.add(resetButton, gridBagConstraints);
 
         hitungButton.setText("Hitung");
+        hitungButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hitungButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(14, 19, 7, 10);
         jPanel1.add(hitungButton, gridBagConstraints);
 
-        diskonComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        diskonComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10%", "15%", "20%", "25%" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 41;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 14);
         jPanel1.add(diskonComboBox, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 7;
+        gridBagConstraints.ipadx = 51;
         gridBagConstraints.weightx = 2.0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 3, 0, 3);
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 6, 14);
         jPanel1.add(hargaTextField, gridBagConstraints);
 
-        jLabel2.setText("diskonLabel");
+        diskonLabel.setText("Pilih Diskon");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        jPanel1.add(jLabel2, gridBagConstraints);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(0, 6, 0, 18);
+        jPanel1.add(diskonLabel, gridBagConstraints);
 
         hargaLabel.setText("Masukkan Harga");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(14, 6, 0, 18);
         jPanel1.add(hargaLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 41;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 14);
         jPanel1.add(totalTextField, gridBagConstraints);
 
         totalLabel.setText("Total Harga Anda");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(0, 6, 0, 18);
         jPanel1.add(totalLabel, gridBagConstraints);
 
         hematTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -99,18 +123,26 @@ public class AplikasiPerhitunganDiskon extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 47;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 14);
         jPanel1.add(hematTextField, gridBagConstraints);
 
         hematLabel.setText("Anda Hemat");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(0, 6, 4, 18);
         jPanel1.add(hematLabel, gridBagConstraints);
 
         riwayatButton.setText("Lihat Riwayat");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(0, 21, 11, 10);
         jPanel1.add(riwayatButton, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -118,16 +150,16 @@ public class AplikasiPerhitunganDiskon extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(142, 142, 142)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(85, 85, 85)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -136,6 +168,22 @@ public class AplikasiPerhitunganDiskon extends javax.swing.JFrame {
     private void hematTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hematTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_hematTextFieldActionPerformed
+
+    private void hitungButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hitungButtonActionPerformed
+        // TODO add your handling code here:
+        try {
+            int harga = Integer.parseInt(hargaTextField.getText());
+            String diskonStr = (String) diskonComboBox.getSelectedItem();
+            int diskon = Integer.parseInt(diskonStr.replace("%", ""));
+            int total = harga - (harga * diskon / 100);
+            int hemat = harga * diskon / 100;
+
+            totalTextField.setText(String.valueOf(total));
+            hematTextField.setText(String.valueOf(hemat));
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Input tidak valid. Masukkan angka yang benar.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_hitungButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,12 +222,12 @@ public class AplikasiPerhitunganDiskon extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> diskonComboBox;
+    private javax.swing.JLabel diskonLabel;
     private javax.swing.JLabel hargaLabel;
     private javax.swing.JTextField hargaTextField;
     private javax.swing.JLabel hematLabel;
     private javax.swing.JTextField hematTextField;
     private javax.swing.JButton hitungButton;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton resetButton;
     private javax.swing.JButton riwayatButton;
